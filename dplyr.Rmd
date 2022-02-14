@@ -7,10 +7,26 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+install.packages("tidyverse")
+require(tidyverse)
 ```
 
 ## dplyr
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
+```{r}
+data()
+View(starwars)
+```
+
+# Select, Filter, and Mutate
+
+```{r}
+Humans <- starwars %>% 
+  select(gender, mass, height, species) %>% 
+  filter(species == "Human") %>% 
+  na.omit()
+Humans
+```
 
